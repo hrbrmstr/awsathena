@@ -1,0 +1,13 @@
+^LICENSE\.md$
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.travis\.yml$
+^README\.*Rmd$
+^README\.*html$
+^NOTES\.*Rmd$
+^NOTES\.*html$
+^\.codecov\.yml$
+^README_files$
+^docs$
+^CONDUCT\.md$
+^\.bash_profile$

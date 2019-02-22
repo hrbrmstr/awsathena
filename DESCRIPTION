@@ -1,0 +1,30 @@
+Package: awsathena
+Type: Package
+Title: rJava Interface to AWS Athena SDK
+Version: 0.1.0
+Date: 2019-02-22
+Authors@R: c(
+    person("Bob", "Rudis", role = c("aut", "cre"), email = "bob@rud.is")
+  )
+Maintainer: Bob Rudis <bob@rud.is>
+SystemRequirements: Java
+Description: Provides R wrapper methods to core 'aws-java-sdk-athena' Java library methods
+    to interrogate and orchestrate Amazon Athena queries.
+URL: https://github.com/hrbrmstr/awsathena
+BugReports: https://github.com/hrbrmstr/awsathena/issues
+License: Apache License 2.0 | file LICENSE
+Encoding: UTF-8
+Suggests:
+    testthat,
+    covr,
+    dbplyr
+Depends:
+    R (>= 3.2.0),
+    rJava,
+    awsathenajars
+Imports: 
+    uuid,
+    utils
+RoxygenNote: 6.1.1
+Remotes: 
+    hrbrmstr/awsathenajars

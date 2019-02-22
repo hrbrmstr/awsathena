@@ -1,0 +1,63 @@
+---
+output: rmarkdown::github_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# awsathena
+
+rJava Interface to AWS Athena SDK
+
+## Description
+
+Provides R wrapper methods to core 'aws-java-sdk-athena' Java library methods
+to interrogate and orchestrate Amazon Athena queries.
+
+## What's Inside the Tin?
+
+The following functions are implemented:
+
+- `collect_async`:	Collect Amazon Athena 'dplyr' query results asynchronously
+- `download_query_execution_results`:	Use S3 to download the results of an Athena Query
+- `get_query_execution`:	Get Query Execution
+- `list_query_executions`:	List Query Executions
+- `s3_download_file`:	Download a key from a bucket to a local file
+- `start_query_execution`:	Start Query Execution
+- `stop_query_execution`:	Stop Query Execution
+
+## Installation
+
+```{r eval=FALSE}
+devtools::install_git("git@git.sr.ht:~hrbrmstr/awsathena")
+# OR
+devtools::install_gitlab("hrbrmstr/awsathena")
+# OR
+devtools::install_github("hrbrmstr/awsathena")
+```
+
+## Usage
+
+```{r}
+library(rJava)
+library(awsathenajars)
+library(awsathena)
+
+packageVersion("awsathena")
+```
+
+### Basics
+
+```{r}
+qx <- list_query_executions(profile = "personal")
+
+head(qx)
+
+str(get_query_execution(qx[[1]], profile = "personal"), 1)
+```
+
+## `awsathenajars` Metrics
+
+```{r cloc, echo=FALSE}
+cloc::cloc_pkg_md()
+```
+
