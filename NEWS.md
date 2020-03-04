@@ -1,3 +1,6 @@
+0.3.1
+* `workgroup` is now able to be specified for Athena ops
+
 0.3.0
 * buffer for download is now a parameter
 * added `get_query_results_metadata()` to enable retrieval of col types

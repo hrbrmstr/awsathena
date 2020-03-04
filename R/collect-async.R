@@ -78,8 +78,12 @@ collect_async <- function(obj,
   if (!requireNamespace("dbplyr", quietly = TRUE)) {
     stop("dbplyr package required for this function", call. = FALSE)
   } else {
+
+    qry <- dbplyr::sql_render(obj)
+    qry <- as.character(qry)
+
     start_query_execution(
-      query = as.character(dbplyr::sql_render(obj)),
+      query = qry,
       database = database,
       output_location = output_location,
       client_request_token = client_request_token,
