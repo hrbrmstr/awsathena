@@ -3,7 +3,6 @@
 \docType{package}
 \name{awsathena}
 \alias{awsathena}
-\alias{awsathena-package}
 \title{rJava Client to AWS Athena SDK}
 \description{
 Provides R wrapper methods to core 'aws-java-sdk-athena' Java library methods

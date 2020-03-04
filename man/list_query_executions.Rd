@@ -4,14 +4,18 @@
 \alias{list_query_executions}
 \title{List Query Executions}
 \usage{
-list_query_executions(region = "us-east-1", profile = NULL,
-  properties_file = NULL, max = NULL)
+list_query_executions(
+  region = "us-east-1",
+  profile = NULL,
+  properties_file = NULL,
+  max = NULL
+)
 }
 \arguments{
 \item{region}{AWS region string}
 
 \item{profile}{if not using the default credentials chain or a dedicated
-properties file then provide the named profile from \code{~/.aws/credentials}
+properties file then provide the named profile from \verb{~/.aws/credentials}
 you wish to use}
 
 \item{properties_file}{if not using the default credentials provider chain or

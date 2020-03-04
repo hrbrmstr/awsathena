@@ -29,6 +29,7 @@
 #'        you wish to use
 #' @param properties_file if not using the default credentials provider chain or
 #'        a named profile then provide the path to an Athena credentials proeprty file.
+#' @param workgroup workgroup
 #' @note `dbplyr` must be installed for this to work. It is not listed in
 #'       the `Imports` as it brings with it many dependencies that may not
 #'       be necessary for general use of this package.
@@ -71,6 +72,7 @@ collect_async <- function(obj,
                           kms_key = NULL,
                           region = "us-east-1",
                           profile = NULL,
+                          workgroup = "primary",
                           properties_file = NULL) {
 
   if (!requireNamespace("dbplyr", quietly = TRUE)) {
@@ -85,7 +87,8 @@ collect_async <- function(obj,
       kms_key = kms_key,
       region = region,
       profile = profile,
-      properties_file = properties_file
+      properties_file = properties_file,
+      workgroup = workgroup
     )
   }
 

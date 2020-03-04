@@ -4,8 +4,12 @@
 \alias{stop_query_execution}
 \title{Stop Query Execution}
 \usage{
-stop_query_execution(qxid, region = "us-east-1", profile = NULL,
-  properties_file = NULL)
+stop_query_execution(
+  qxid,
+  region = "us-east-1",
+  profile = NULL,
+  properties_file = NULL
+)
 }
 \arguments{
 \item{qxid}{query execution id}
@@ -13,7 +17,7 @@ stop_query_execution(qxid, region = "us-east-1", profile = NULL,
 \item{region}{AWS region string}
 
 \item{profile}{if not using the default credentials chain or a dedicated
-properties file then provide the named profile from \code{~/.aws/credentials}
+properties file then provide the named profile from \verb{~/.aws/credentials}
 you wish to use}
 
 \item{properties_file}{if not using the default credentials provider chain or

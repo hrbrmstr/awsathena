@@ -4,10 +4,18 @@
 \alias{collect_async}
 \title{Collect Amazon Athena \code{dplyr} query results asynchronously}
 \usage{
-collect_async(obj, database, output_location,
+collect_async(
+  obj,
+  database,
+  output_location,
   client_request_token = uuid::UUIDgenerate(),
-  encryption_option = NULL, kms_key = NULL, region = "us-east-1",
-  profile = NULL, properties_file = NULL)
+  encryption_option = NULL,
+  kms_key = NULL,
+  region = "us-east-1",
+  profile = NULL,
+  workgroup = "primary",
+  properties_file = NULL
+)
 }
 \arguments{
 \item{obj}{the \code{dplyr} query}
@@ -33,8 +41,10 @@ Default is \code{NULL} (no encryption)}
 \item{region}{AWS region string}
 
 \item{profile}{if not using the default credentials chain or a dedicated
-properties file then provide the named profile from \code{~/.aws/credentials}
+properties file then provide the named profile from \verb{~/.aws/credentials}
 you wish to use}
+
+\item{workgroup}{workgroup}
 
 \item{properties_file}{if not using the default credentials provider chain or
 a named profile then provide the path to an Athena credentials proeprty file.}

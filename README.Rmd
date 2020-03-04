@@ -20,6 +20,7 @@ The following functions are implemented:
 - `collect_async`:	Collect Amazon Athena 'dplyr' query results asynchronously
 - `download_query_execution_results`:	Use S3 to download the results of an Athena Query
 - `get_query_execution`:	Get Query Execution
+- `get_query_results_metadata`: Get Query Execution Results Metadata (Schema)
 - `list_query_executions`:	List Query Executions
 - `s3_download_file`:	Download a key from a bucket to a local file
 - `start_query_execution`:	Start Query Execution

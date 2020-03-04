@@ -11,6 +11,7 @@
 #' @param profile if not using the default credentials chain or a dedicated
 #'        properties file then provide the named profile from `~/.aws/credentials`
 #'        you wish to use
+#' @param buffer_size S3 temp buffer size; bigger = faster d/l
 #' @param properties_file if not using the default credentials provider chain or
 #'        a named profile then provide the path to an Athena credentials proeprty file.
 #' @export
@@ -19,6 +20,7 @@ download_query_execution_results <- function(qxid,
                                              progress = FALSE,
                                              region = "us-east-1",
                                              profile = NULL,
+                                             buffer_size = 16384L,
                                              properties_file = NULL) {
 
   if (missing(output_dir)) output_dir <- getwd()
@@ -38,6 +40,7 @@ download_query_execution_results <- function(qxid,
     progress = progress,
     region = region,
     profile = profile,
+    buffer_size = buffer_size,
     properties_file = properties_file
   ) -> res
 

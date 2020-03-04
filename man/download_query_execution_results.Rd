@@ -4,8 +4,15 @@
 \alias{download_query_execution_results}
 \title{Use S3 to download the results of an Athena Query}
 \usage{
-download_query_execution_results(qxid, output_dir, progress = FALSE,
-  region = "us-east-1", profile = NULL, properties_file = NULL)
+download_query_execution_results(
+  qxid,
+  output_dir,
+  progress = FALSE,
+  region = "us-east-1",
+  profile = NULL,
+  buffer_size = 16384L,
+  properties_file = NULL
+)
 }
 \arguments{
 \item{qxid}{query execution id}
@@ -18,8 +25,10 @@ the value) to where you want the results to be stored.}
 \item{region}{AWS region string}
 
 \item{profile}{if not using the default credentials chain or a dedicated
-properties file then provide the named profile from \code{~/.aws/credentials}
+properties file then provide the named profile from \verb{~/.aws/credentials}
 you wish to use}
+
+\item{buffer_size}{S3 temp buffer size; bigger = faster d/l}
 
 \item{properties_file}{if not using the default credentials provider chain or
 a named profile then provide the path to an Athena credentials proeprty file.}

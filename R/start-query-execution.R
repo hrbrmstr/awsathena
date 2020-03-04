@@ -21,6 +21,7 @@
 #'        you wish to use
 #' @param properties_file if not using the default credentials provider chain or
 #'        a named profile then provide the path to an Athena credentials proeprty file.
+#' @param workgroup workgroup
 #' @export
 start_query_execution <- function(query, database, output_location,
                                   client_request_token = uuid::UUIDgenerate(),
@@ -28,7 +29,8 @@ start_query_execution <- function(query, database, output_location,
                                   kms_key = NULL,
                                   region = "us-east-1",
                                   profile = NULL,
-                                  properties_file = NULL) {
+                                  properties_file = NULL,
+                                  workgroup = "primary") {
 
   client <- aws_athena_client(region = region, profile = profile, properties_file = properties_file)
 
@@ -43,6 +45,7 @@ start_query_execution <- function(query, database, output_location,
   qx_req <- qx_req$withQueryExecutionContext(ctx)
   qx_req <- qx_req$withResultConfiguration(res_cfg)
   qx_req <- qx_req$withClientRequestToken(client_request_token)
+  qx_req <- qx_req$withWorkGroup(workgroup)
 
   res <- client$startQueryExecution(qx_req)
 

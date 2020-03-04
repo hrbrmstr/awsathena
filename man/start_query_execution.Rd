@@ -4,10 +4,18 @@
 \alias{start_query_execution}
 \title{Start Query Execution}
 \usage{
-start_query_execution(query, database, output_location,
+start_query_execution(
+  query,
+  database,
+  output_location,
   client_request_token = uuid::UUIDgenerate(),
-  encryption_option = NULL, kms_key = NULL, region = "us-east-1",
-  profile = NULL, properties_file = NULL)
+  encryption_option = NULL,
+  kms_key = NULL,
+  region = "us-east-1",
+  profile = NULL,
+  properties_file = NULL,
+  workgroup = "primary"
+)
 }
 \arguments{
 \item{query}{SQL query statements to be executed}
@@ -33,11 +41,13 @@ Default is \code{NULL} (no encryption)}
 \item{region}{AWS region string}
 
 \item{profile}{if not using the default credentials chain or a dedicated
-properties file then provide the named profile from \code{~/.aws/credentials}
+properties file then provide the named profile from \verb{~/.aws/credentials}
 you wish to use}
 
 \item{properties_file}{if not using the default credentials provider chain or
 a named profile then provide the path to an Athena credentials proeprty file.}
+
+\item{workgroup}{workgroup}
 }
 \description{
 Start Query Execution

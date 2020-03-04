@@ -8,6 +8,7 @@
 #' @param profile if not using the default credentials chain or a dedicated
 #'        properties file then provide the named profile from `~/.aws/credentials`
 #'        you wish to use
+#' @param buffer_size S3 temp buffer size; bigger = faster d/l
 #' @param properties_file if not using the default credentials provider chain or
 #'        a named profile then provide the path to an Athena credentials proeprty file.
 #' @export
@@ -15,6 +16,7 @@ s3_download_file <- function(bucket, key, output_dir,
                              progress = FALSE,
                              region = "us-east-1",
                              profile = NULL,
+                             buffer_size = 16384L,
                              properties_file = NULL) {
 
   aws_s3_client(
@@ -34,7 +36,7 @@ s3_download_file <- function(bucket, key, output_dir,
 
   s3is <- obj$getObjectContent()
 
-  buf <- raw(4096)
+  buf <- raw(buffer_size)
   jbuf <- .jarray(buf)
 
   read_len <- s3is$read(jbuf)
